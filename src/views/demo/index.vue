@@ -1,22 +1,21 @@
 <template>
   <div class="hello">
-    {{now}} HelloWorld ! {{msg}} cookie:{{cookie}}
+    HelloWorld ! {{msg}} {{now}} 
     <br/>
-    <img :src="logopngPath" :v-on="click()" />
+    <img :src="vueLogoPath" />
   </div>
 </template>
   
 <script>
-import logopngPath from '@//views/demo/assets/images/logo.png'
+import vueLogo from '@/views/demo/assets/images/logo.png'
 
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App index , ',
+      msg: 'Welcome to Your First Vue.js App index,',
       now: new Date().toLocaleString(),
-      logopngPath: logopngPath,
-      cookie: ''
+      vueLogoPath: vueLogo
     }
   },
   mounted () {
@@ -25,11 +24,7 @@ export default {
   methods: {
     // 加载数据
     loadData () {
-      this.cookie = document.cookie
-      console.log('document.cookie:' + document.cookie)
-    },
-    click () {
-      // sssss
+      console.log('load data.')
     }
   }
 }
@@ -42,20 +37,5 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
-}
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
 }
 </style>

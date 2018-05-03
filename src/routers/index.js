@@ -3,7 +3,8 @@ import Router from 'vue-router'
 
 // 路由文件，引用各业务模块路由
 // 引入各业务模块路由数据
-import demorouters from '@/views/omni/routers/index'
+import demorouters from '@/views/demo/routers/index'
+import omnirouters from '@/views/omni/routers/index'
 
 // 配置路由
 Vue.use(Router)
@@ -13,12 +14,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/form01'
+      redirect: '/index'
     },
     {
-      path: '/form01',
-      component: resolve => require(['@/views/omni/form01.vue'], resolve)
+      path: '/index',
+      component: resolve => require(['@/views/demo/index.vue'], resolve)
     },
-    ...demorouters
+    ...demorouters,
+    ...omnirouters
   ]
 })

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+  <script type="text/javascript">
+    function onSuccess(stream) {
+      var video = document.getElementById('webcam');
+      if (window.URL) {
+        video.src = window.URL.createObjectURL(stream);
+      } else {
+        video.src = stream;
+      }
+
+      video.autoplay = true;
+      // 或者 video.play();
+    }
+    
+    var constraints = { video: true };
+
+    function onError(error) {
+      console.log("navigator.getUserMedia error: ", error);
+    }
+
+    navigator.getUserMedia(constraints, onSuccess, onError);
+
+    if (navigator.getUserMedia) {
+      navigator.getUserMedia({ video: true }, onSuccess);
+    } else {
+      document.getElementById('webcam').src = 'somevideo.mp4';
+    }
+  </script>
+</head>
+<body>
+  <video id="webcam"></video>
+</body>
+</html>

@@ -13,8 +13,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/creditcards': {
-        target: 'https://58.185.146.28',
-        secure: false
+        target: 'http://localhost:8088',
+        // secure: false
       }
     },
 
